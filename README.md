@@ -580,24 +580,11 @@ GCN方法复现对比结果，训练批处理大小Batchsize
 
 ​	a）HSink数据集
 
-| Test data | MAE  | MaxAE | CMAE | M-CAE | BMAE |
-| :-------: | :--: | :---: | :--: | :---: | :--: |
-|   Test0   |      |       |      |       |      |
-| Re-Test0  |      |       |      |       |      |
-|   Test1   |      |       |      |       |      |
-| Re-Test1  |      |       |      |       |      |
-|   Test2   |      |       |      |       |      |
-| Re-Test2  |      |       |      |       |      |
-|   Test3   |      |       |      |       |      |
-| Re-Test3  |      |       |      |       |      |
-|   Test4   |      |       |      |       |      |
-| Re-Test4  |      |       |      |       |      |
-|   Test5   |      |       |      |       |      |
-| Re-Test5  |      |       |      |       |      |
+##TODO
 
 2.5.5 模型参数和推理效率
 
-
+##TODO
 
 三 Deep Learning Methods for Reynolds-Averaged Navier-Stokes Simulations of Airfoil Flows
 
@@ -629,7 +616,7 @@ Nvidia GeForce RTX 3060、CUDA 12.4、Python 3.10、Intel(R) Xeon(R) CPU E5-2680
 
 3.5 实验结果
 
-​        原始论文模型TurbNetG与论文描述在性能上相差不大。在此基础上，该benchmark对ViT模型和Swin Transformer模型进行训练实验和推理。两个Transformer架构模型结果如下所示，ViT模型相较原论文模型TurbNetG在性能和模型参数量上没有区别，但是ViT在训练速度上相较慢15倍，在推理速度上相较慢了5倍；Swin Transformer模型相较原论文TurbNetG在性能上最好，训练速度相较慢5倍（比ViT快3倍），但是在推理速度最慢（相较原论文慢7倍）和模型参数量最大。
+​ 原始论文模型TurbNetG与论文描述在性能上相差不大。在此基础上，该benchmark对ViT模型和Swin Transformer模型进行训练实验和推理。两个Transformer架构模型结果如下所示，ViT模型相较原论文模型TurbNetG在性能和模型参数量上没有区别，但是ViT在训练速度上相较慢15倍，在推理速度上相较慢了5倍；Swin Transformer模型相较原论文TurbNetG在性能上最好，训练速度相较慢5倍（比ViT快3倍），但是在推理速度最慢（相较原论文慢7倍）和模型参数量最大。
 
 |      Model       | Params  |    MAE     | Relative error (%) | Test Time per epoch (s) | Train  Time per epoch (s) |
 | :--------------: | :-----: | :--------: | :----------------: | :---------------------: | :-----------------------: |
