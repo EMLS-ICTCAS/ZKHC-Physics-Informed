@@ -618,12 +618,12 @@ Nvidia GeForce RTX 3060、CUDA 12.4、Python 3.10、Intel(R) Xeon(R) CPU E5-2680
 
 ​ 原始论文模型TurbNetG与论文描述在性能上相差不大。在此基础上，该benchmark对ViT模型和Swin Transformer模型进行训练实验和推理。两个Transformer架构模型结果如下所示，ViT模型相较原论文模型TurbNetG在性能和模型参数量上没有区别，但是ViT在训练速度上相较慢15倍，在推理速度上相较慢了5倍；Swin Transformer模型相较原论文TurbNetG在性能上最好，训练速度相较慢5倍（比ViT快3倍），但是在推理速度最慢（相较原论文慢7倍）和模型参数量最大。
 
-|      Model       | Params  |    MAE     | Relative error (%) | Test Time per epoch (s) | Train  Time per epoch (s) |
-| :--------------: | :-----: | :--------: | :----------------: | :---------------------: | :-----------------------: |
-|     TurbNetG     | 2.332 M |   0.0055   |        2.6         |            -            |             -             |
-|   Re-TurbNetG    | 2.332 M |   0.0059   |        2.8         |         0.0384          |           2.097           |
-|       ViT        | 3.316 M |   0.0054   |        2.6         |         0.1762          |          32.352           |
-| Swin Transformer | 10.93 M | **0.0049** |      **2.2**       |         0.2124          |          11.243           |
+|      Model       | Params (M) |    MAE     | Relative error (%) | Test Time per epoch (s) | Train  Time per epoch (s) |
+| :--------------: |:----------:| :--------: | :----------------: | :---------------------: | :-----------------------: |
+|     TurbNetG     |   2.332    |   0.0055   |        2.6         |            -            |             -             |
+|   Re-TurbNetG    |   2.332    |   0.0059   |        2.8         |         0.0384          |           2.097           |
+|       ViT        |   3.316    |   0.0054   |        2.6         |         0.1762          |          32.352           |
+| Swin Transformer |   10.939   | **0.0049** |      **2.2**       |         0.2124          |          11.243           |
 
 # **物理场动态预测**
 
