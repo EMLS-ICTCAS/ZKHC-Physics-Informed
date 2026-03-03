@@ -622,23 +622,21 @@ Nvidia GeForce RTX 3060、CUDA 12.4、Python 3.10、Intel(R) Xeon(R) CPU E5-2680
 （1）超参数设置
 
 - 原论文模型TurbNetG：U-Net模型架构，初始嵌入维度channels=32，失活率dropout=0，encoder-deocder层数为7层。
-- ViT模型：嵌入维度embed_dim=128，输入通道in_chans=3，深度大小depths16（编码层深度8层、解码层深度8层），注意力头num_heads=4，初始路径失活率drop_path_rate=0.1，使用绝对位置编码（位置编码标准化到（0，0.2）的正态分布）。
-- Swin Transformer模型：嵌入维度embed_dim=128，输入通道in_chans=3，深度大小depths16（编码层深度8层、解码层深度8层），注意力头num_heads=4，初始路径失活率drop_path_rate=0.1，滑动窗口大小window_size=4，使用绝对位置编码（位置编码标准化到（0，0.2）的正态分布）。
+- ViT模型：嵌入维度embed_dim=128，输入通道in_chans=3，深度大小depths=16（编码层深度8层、解码层深度8层），注意力头num_heads=4，初始路径失活率drop_path_rate=0.1，使用绝对位置编码（位置编码标准化到（0，0.2）的正态分布）。
+- Swin Transformer模型：嵌入维度embed_dim=128，输入通道in_chans=3，深度大小depths=16（编码层深度8层、解码层深度8层），注意力头num_heads=4，初始路径失活率drop_path_rate=0.1，滑动窗口大小window_size=4，使用绝对位置编码（位置编码标准化到（0，0.2）的正态分布）。
 
 （2）训练设置：初始学习率=0.0006，学习率衰减因子为0.1，批处理大小batch_size=5，混合数据（比例reg类型占0.75，sup类型占0，shear类型占0.25），使用Adam优化器（其中betas设置为（0.5，0.999））。
 
 3.5 实验结果
 
-​    复现原始论文模型在性能上一致，在此基础上，该benchmark对ViT模型和Swin Transformer模型进行训练和推理实验，得到相比较于源论文实验结果在ViT上能实现稍微好的实验性能。
+​        原始论文模型TurbNetG与论文描述在性能上相差不大。在此基础上，该benchmark对ViT模型和Swin Transformer模型进行训练实验和推理。两个Transformer架构模型结果如下所示，ViT模型相较原论文模型TurbNetG在性能和模型参数量上没有区别，但是ViT在训练速度上相较慢15倍，在推理速度上相较慢了5倍；Swin Transformer模型相较原论文TurbNetG在性能上最好，训练速度相较慢5倍（比ViT快3倍），但是在推理速度最慢（相较原论文慢7倍）和模型参数量最大。
 
-|       Model       |  Params  |  MAE   | Relative  error (%) | Time  per epoch  (s) |
-| :---------------: | :------: | :----: | :-----------------: | :------------------: |
-|     TurbNetG      | 2.332  M | 0.0055 |         2.6         |          -           |
-|    Re-TurbNetG    | 2.332  M | 0.0059 |         2.8         |        0.1262        |
-|        ViT        | 3.316  M | 0.0054 |         2.6         |                      |
-| Swin  Transformer | 10.939 M |        |                     |                      |
-
-
+|      Model       | Params  |    MAE     | Relative error (%) | Test Time per epoch (s) | Train  Time per epoch (s) |
+| :--------------: | :-----: | :--------: | :----------------: | :---------------------: | :-----------------------: |
+|     TurbNetG     | 2.332 M |   0.0055   |        2.6         |            -            |             -             |
+|   Re-TurbNetG    | 2.332 M |   0.0059   |        2.8         |         0.0384          |           2.097           |
+|       ViT        | 3.316 M |   0.0054   |        2.6         |         0.1762          |          32.352           |
+| Swin Transformer | 10.93 M | **0.0049** |      **2.2**       |         0.2124          |          11.243           |
 
 # **物理场动态预测**
 
@@ -709,7 +707,7 @@ Nvidia GeForce RTX 3060、CUDA 12.4、Python 3.12、Intel(R) Xeon(R) CPU E5-2680
 |  ACDM   |   2.7±2.1    |    1.3±0.6    |           -           |
 | Re-ACDM |     5.42     |     1.65      |         1.052         |
 
-1.5.3 Iso复现对比结果、和推理效率
+1.5.3 Iso数据集复现对比结果、和推理效率
 
 | Method  | MSE  (10−4)↓ | LSiM  (10−2)↓ | Time  per epoch (min) |
 | :-----: | :----------: | :-----------: | :-------------------: |
