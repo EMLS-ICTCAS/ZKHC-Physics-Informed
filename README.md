@@ -1,5 +1,9 @@
 # 文档结构图
 
+> 📌**注意**：在**GitHub**仓库中在线打开文档无法点击流程图节点跳转，需要跳转请使用表格中的点击跳转；离线文档在使用Typora、Obsidian、VS Code、Notion等编辑工具打开后可以点击流程图中节点进行跳转。
+
+> 💡 **提示**：点击下方节点可快速定位到对应章节
+
 ```mermaid
 graph LR
 A[物理场反演]==>B(物理场重建)
@@ -14,9 +18,22 @@ click F "##三 Deep Learning Methods for Reynolds-Averaged Navier-Stokes Simulat
 click DD "##一 Benchmarking autoregressive conditional diffusion models for turbulent flow simulation"
 ```
 
+链接表格
+
+> 💡 **提示**：点击下方链接可快速定位到对应章节
+
+| 编号 | **节点** | **跳转链接** |
+| :--: | :------: | :----------: |
+| 1 | Zhao X et al | [👉跳转↗](#一-recfno)    |
+| 2 | Chen X et al | [👉跳转↗](##a-machine-learning) |
+| 3 | Thuerey N et al | [👉跳转↗]() |
+| 4 | Kohl G et al | [👉跳转↗]() |
+
+
+
 # 物理场重建
 
-## 一 RecFNO: A resolution-invariant flow and heat field reconstruction method from sparse observations via Fourier neural operator.
+## 一 RecFNO: A resolution-invariant flow and heat field reconstruction method from sparse observations via Fourier neural operator. 
 
 1.1 源项目仓库
 
