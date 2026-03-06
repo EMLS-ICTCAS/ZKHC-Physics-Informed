@@ -8,26 +8,26 @@
 graph LR
 A[物理场反演]==>B(物理场重建)
 A[物理场反演]==>C(物理场动态预测)
-B==>D(Zhao X et al)==>E(Chen X et al)==>F(Thuerey N et al)
-C==>DD(Kohl G et al)
+B==>D(2024-Zhao et al)==>E(2023-Chen et al)==>F(2020-Thuerey et al)
+C==>DD(2026-Kohl et al)
 click B "#物理场重建"
 click C "#物理场动态预测"
 click D "##一 RecFNO"
-click E "##二  A machine learning surrogate modeling benchmark for temperature field reconstruction of heat source systems"
+click E "##二 A machine learning surrogate modeling benchmark for temperature field reconstruction of heat source systems"
 click F "##三 Deep Learning Methods for Reynolds-Averaged Navier-Stokes Simulations of Airfoil Flows"
 click DD "##一 Benchmarking autoregressive conditional diffusion models for turbulent flow simulation"
 ```
 
-链接表格
+🔄 链接表格
 
 > 💡 **提示**：点击下方链接可快速定位到对应章节
 
 | 编号 | **节点** | **跳转链接** |
 | :--: | :------: | :----------: |
-| 1 | Zhao X et al | [👉跳转↗](#一-recfno)    |
-| 2 | Chen X et al | [👉跳转↗](##a-machine-learning) |
-| 3 | Thuerey N et al | [👉跳转↗]() |
-| 4 | Kohl G et al | [👉跳转↗]() |
+| 1 | 2024-Zhao et al | [👉跳转↗](#一-recfno)    |
+| 2 | 2023-Chen et al | [👉跳转↗](##a-machine-learning) |
+| 3 | 2020-Thuerey et al | [👉跳转↗]() |
+| 4 | 2026-Kohl et al | [👉跳转↗]() |
 
 
 
@@ -202,7 +202,7 @@ Cylinder数据集观测值数量为4，Darcy数据集观测值数量为25，SST�
 
 
 
-## 二  A machine learning surrogate modeling benchmark for temperature field reconstruction of heat source systems.
+## 二 A machine learning surrogate modeling benchmark for temperature field reconstruction of heat source systems.
 
 2.1 源项目仓库
 
