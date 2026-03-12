@@ -5,11 +5,11 @@
 > 💡 **提示**：点击下方节点可快速定位到对应章节
 
 ```mermaid
-graph LR
+graph TD
 A[物理场反演]==>B(物理场重建)
 A[物理场反演]==>C(物理场动态预测)
-B==>D(2024-Zhao et al)==>E(2023-Chen et al)==>F(2020-Thuerey et al)
-C==>DD(2026-Kohl et al)
+B---D(2024-Zhao et al)---E(2023-Chen et al)---F(2020-Thuerey et al)
+C---DD(2026-Kohl et al)
 click B "#物理场重建"
 click C "#物理场动态预测"
 click D "##一 RecFNO A resolution-invariant flow and heat field reconstruction method from sparse observations via Fourier neural operator"
