@@ -5,7 +5,7 @@
 > 💡 **提示**：点击下方节点可快速定位到对应章节
 
 ```mermaid
-graph TD
+graph LR
 A[物理场反演]==>B(物理场重建)
 A[物理场反演]==>C(物理场动态预测)
 B---D(2024-Zhao et al)---E(2023-Chen et al)---F(2020-Thuerey et al)
