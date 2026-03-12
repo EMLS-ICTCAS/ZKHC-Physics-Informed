@@ -1,4 +1,4 @@
-<center style="font-size: 30px"><b>物理场反演方法综述</b></center>
+<h2 align="center" style="font-size: 30px"><b>物理场反演方法综述</b></h2>
 
 # 文档结构图
 
