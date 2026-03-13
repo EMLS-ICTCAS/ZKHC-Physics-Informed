@@ -2,38 +2,31 @@
 
 ---
 
+
+
 # 文档结构图
 
-> 📌**注意**：在**GitHub**仓库中在线打开文档无法点击结构图节点跳转，需要跳转请点击链接表格中的跳转链接跳转到感兴趣的章节；离线文档在使用Typora、Obsidian、VS Code、Notion等编辑工具打开后可以点击结构图中节点进行跳转。
+> 文档组织结构如如下，整个物理场反演方法从3个任务（物理重建、物理场动态预测、复合物理场反演）来进行阐述，在每一个任务下列举对应的论文文章，其中有相关开源源代码和开源数据集的方法模型，该综述会进行复现和展示实验结果。除此之外，综述还会引入了Transformer相关方法进行实验验证。
 
-> 💡 **提示**：点击下方节点可快速定位到对应章节
+![结构图](./结构图.png)
 
-```mermaid
-graph LR
-A[物理场反演]==>B(物理场重建)
-A[物理场反演]==>C(物理场动态预测)
-B---D(2024-Zhao et al)---E(2023-Chen et al)---F(2020-Thuerey et al)
-C---DD(2026-Kohl et al)
-click B "#物理场重建"
-click C "#物理场动态预测"
-click D "##一 RecFNO A resolution-invariant flow and heat field reconstruction method from sparse observations via Fourier neural operator"
-click E "##二 A machine learning surrogate modeling benchmark for temperature field reconstruction of heat source systems"
-click F "##三 Deep Learning Methods for Reynolds-Averaged Navier-Stokes Simulations of Airfoil Flows"
-click DD "##一 Benchmarking autoregressive conditional diffusion models for turbulent flow simulation"
-```
+
+
+---
 
 🔄 链接表格
 
 > 💡 **提示**：点击下方链接可快速定位到对应章节
 
-| 编号 | **节点** | **跳转链接** |
+| 类别 | **节点** | **跳转链接** |
 | :--: | :------: | :----------: |
-| 1 | 2024-Zhao et al | [👉跳转↗](#recfno)    |
-| 2 | 2023-Chen et al | [👉跳转↗](#machine-learning) |
-| 3 | 2020-Thuerey et al | [👉跳转↗](#deep-learning-airfoil-flows) |
-| 4 | 2026-Kohl et al | [👉跳转↗](#benchmarking-diffusion-turbulent-flow) |
+| [物理场重建](#physical-reconstruct) | 2024-Zhao et al | [👉跳转↗](#recfno)    |
+| [物理场重建](#physical-reconstruct) | 2023-Chen et al | [👉跳转↗](#machine-learning) |
+| [物理场重建](#physical-reconstruct) | 2020-Thuerey et al | [👉跳转↗](#deep-learning-airfoil-flows) |
+| [物理场动态预测](#dynamics-physical-predict) | 2026-Kohl et al | [👉跳转↗](#benchmarking-diffusion-turbulent-flow) |
+| [复合物理场反演](#couple-pyhsical) | 2024-Li et al | [👉跳转↗](#learning-spatiotemporal-dynamics) |
 
-
+<a id="physical-reconstruct"></a>
 
 # 物理场重建
 <a id="recfno"></a>
@@ -683,10 +676,11 @@ Nvidia GeForce RTX 3060、CUDA 12.4、Python 3.10、Intel(R) Xeon(R) CPU E5-2680
 |       ViT        |    3.316     |   0.0054   |        2.6         |         0.1762          |          32.352           |
 | Swin Transformer |    10.939    | **0.0049** |      **2.2**       |         0.2124          |          11.243           |
 
-
+<a id="dynamics-physical-predict"></a>
 
 # 物理场动态预测
 <a id="benchmarking-diffusion-turbulent-flow"></a>
+
 ## 一 Benchmarking autoregressive conditional diffusion models for turbulent flow simulation.
 
 1.1 源项目仓库
@@ -768,4 +762,18 @@ Nvidia GeForce RTX 3060、CUDA 12.4、Python 3.12、Intel(R) Xeon(R) CPU E5-2680
 | Method | Parameters |
 | :----: | :--------: |
 |  ACDM  |   6.99M    |
+
+<a id="couple-pyhsical"></a>
+
+# 复合物理场反演
+
+
+
+<a id="learning-spatiotemporal-dynamics"></a>
+
+## 一 Li Z, Han W, Zhang Y, et al. Learning spatiotemporal dynamics with a pretrained generative model[J]. Nature Machine Intelligence, 2024, 6(12): 1566-1579.
+
+
+
+
 
