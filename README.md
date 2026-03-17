@@ -771,9 +771,73 @@ Nvidia GeForce RTX 3060、CUDA 12.4、Python 3.12、Intel(R) Xeon(R) CPU E5-2680
 
 <a id="learning-spatiotemporal-dynamics"></a>
 
-## 一 Li Z, Han W, Zhang Y, et al. Learning spatiotemporal dynamics with a pretrained generative model[J]. Nature Machine Intelligence, 2024, 6(12): 1566-1579.
+## 一 Learning spatiotemporal dynamics with a pretrained generative model.
 
+1 源项目仓库
 
+（1）引用：Li Z, Han W, Zhang Y, et al. Learning spatiotemporal dynamics with a pretrained generative model[J]. Nature Machine Intelligence, 2024, 6(12): 1566-1579.
 
+（2）源代码仓库：https://github.com/lzy12301/S3GM
 
+（3）论文地址：https://www.nature.com/articles/s42256-024-00938-z
 
+2 实验软硬件环境
+
+​    Nvidia GeForce RTX 3060、CUDA 12.4、Python 3.10、Intel(R) Xeon(R) CPU E5-2680 v4 @ 2.40GHz。
+
+3 数据集链接
+
+​        论文中使用的数据集由三个数据集组成，包含有Kuramoto-sivashinsky dynamics（Kol）、kolmogorov 湍流（Kse）和ERA5 气候观测（ERA5）。Kuramoto-sivashinsky dynamics数据集是遵循kuramoto-sivashinsky方程，该方程官方应用在扩散交互系统和湍流迁移的不稳定性研究中。整个数据集是。科尔莫戈罗湍流（kolmogorov turbulent flow）作为一个复杂系统包含着高度非线性和混乱在尺度结构中结合。ERA5气候观测数据集依赖在全局气候预测和监测中依赖从稀疏和噪声观测中重建多维变量，该数据集包含4类物理场变量，10米高的u方向风速、10米高的v方向风速、2米高的温度和地球表面的压强。
+
+数据集下载链接：https://doi.org/10.5281/zenodo.14607274
+
+4 训练和推理环境设置
+
+​        在三个训练集上进行训练时，整个训练参数有大部分的一致性，下面对于一致性的参数在开始统一进行说明，其余独立的参数会在每一个数据集的说明内进行列述。
+
+​        一致性训练环境：针对U-Net模型的训练，在训练环境中本次训练设置的超参数如下。学习率lr=0.0002，训练批次epoch=300，注意力头数num_heads=1，通道维度倍数ch_mult=[1,2,4,8]，初始帧num_frame=10，num_interval=1，失活率dropout=0.1。使用预热机制ema，衰减率ema_rate=0.999，使用Adam优化器，其中betas=（0.9，0.999），误差大小eps设置为1e-8，beta最小和最大值分别为beta_min=0.1和beta_max=20，离散步的数量N=200。
+
+​        一致性推理环境：初始帧数num_frame=10，生成帧长度T_prime=100，并行生成数batch=1，预测步outer_loop=1000，掩码类型为随机掩码random，ema离散步数N=1000，其余生成超参数为beta=0.4，gamma=0.5，snr=0.128。
+
+（1）ERA5数据集
+
+训练环境： ERA5数据集上在训练环境中本次训练设置的独立超参数如下。初始维度dim=2，组件数num_components=4，条件数num_conditions=0，注意力分辨率attn_resolution=[8,16]，图像分辨率大小image=642。
+
+推理环境：掩码率为scale=0.99，其余超参数为alpha_case=0.1。
+
+（2）Kol 数据集
+
+训练环境：Kol数据集上在训练环境中本次训练设置的其余超参数如下。初始维度dim=2，组件数num_components=2，条件数num_conditions=2，注意力分辨率attn_resolution=[8,16]，图像分辨率大小image=642。
+
+推理环境：掩码率为scale=0.98，其余超参数为alpha_case=0.5。
+
+（3）Kse数据集
+
+训练环境： Kse数据集上在训练环境中本次训练设置的其余超参数如下。初始维度dim=1，组件数num_components=1，条件数num_conditions=1，注意力分辨率attn_resolution=[16]，图像分辨率大小image=1024。
+
+​        推理环境：掩码率为scale=0.98，其余超参数为alpha_case=0.5。
+
+5 实验结果
+
+在三个测试集上的实验结果和推理效率如下表所示
+
+（1）Kse数据集
+
+| Model | Paraments (M) | nRMSE  | Consis | Time per batch (s) |
+| :---: | :-----------: | :----: | :----: | :----------------: |
+| U-Net |     6.10      | 0.0514 | 0.0923 |        225         |
+|       |               |        |        |                    |
+
+（2）Kol数据集
+
+| Model | Paraments (M) | nRMSE | Consis | Time per batch (s) |
+| :---: | :-----------: | :---: | :----: | :----------------: |
+| U-Net |     6.10      |       |        |                    |
+|       |               |       |        |                    |
+
+（3）ERA5数据集
+
+| Model | Paraments (M) | nRMSE  | Consis  | Time per batch (s) |
+| :---: | :-----------: | :----: | :-----: | :----------------: |
+| U-Net |     6.10      | 1.0349 | 39.1254 |        9510        |
+|       |               |        |         |                    |
