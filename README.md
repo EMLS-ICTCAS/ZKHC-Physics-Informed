@@ -8,7 +8,7 @@
 
 > 文档组织结构如如下，整个物理场反演方法从3个任务（物理重建、物理场动态预测、复合物理场反演）来进行阐述，在每一个任务下列举对应的论文文章，其中有相关开源源代码和开源数据集的方法模型，该综述会进行复现和展示实验结果。除此之外，综述还会引入了Transformer相关方法进行实验验证。
 
-![结构图](./figures/结构图.png)
+![结构图](./结构图.png)
 
 
 
@@ -25,6 +25,7 @@
 | [物理场重建](#physical-reconstruct) | 2020-Thuerey et al | [👉跳转↗](#deep-learning-airfoil-flows) |
 | [物理场动态预测](#dynamics-physical-predict) | 2026-Kohl et al | [👉跳转↗](#benchmarking-diffusion-turbulent-flow) |
 | [复合物理场反演](#couple-pyhsical) | 2024-Li et al | [👉跳转↗](#learning-spatiotemporal-dynamics) |
+| [持续学习物理场反演](#contiune-learning-physics-informed) | 2023-Aleksandr et al | [👉跳转↗](#incremental-leanring-physics-informed) |
 
 <a id="physical-reconstruct"></a>
 
@@ -841,3 +842,89 @@ Nvidia GeForce RTX 3060、CUDA 12.4、Python 3.12、Intel(R) Xeon(R) CPU E5-2680
 | :---: | :-----------: | :----: | :-----: | :----------------: |
 | U-Net |     6.10      | 1.0349 | 39.1254 |        9510        |
 |       |               |        |         |                    |
+
+<a id="contiune-learning-physics-informed"> </a>
+
+# 持续学习物理场反演
+
+<a id="incremental-leanring-physics-informed"> </a>
+
+## 一 Incremental learning for physics-informed neural networks
+
+1 源项目仓库
+
+​    论文引用：Dekhovich A, Sluiter M H F, Tax D M J, et al. Incremental learning for physics-informed neural networks[J].
+
+​    源代码链接：https://github.com/adekhovich/incremental_PINNs
+
+​    论文链接：https://ml4physicalsciences.github.io/2023/files/NeurIPS_ML4PS_2023_47.pdf
+
+2 实验软硬件环境
+
+（1）实验软件环境：使用的torch版本为， torchvision版本为0.22.1， numpy版本为2.2.6， matplotlib版本为3.4.3，torch_optimizer版本为0.3.0，scipy版本为1.6.1，pyparsing版本为2.4.7。
+
+（2）实验硬件环境：实验产生在NVIDIA RTX3060，使用CPU为Intel(R) Xeon(R) CPU E5-2680 v4 @ 2.40GHz，使用的CUDA版本为12.4，。
+
+3 数据集链接
+
+数据集链接地址：https://github.com/adekhovich/incremental_PINNs，在源代码仓库中处理数据在训练开始就已经在产生方程解的数据。
+
+4 训练和推理环境设置
+
+​    在两个场景上进行实验和推理测试
+
+（1）场景一：一系列一维传导方程
+
+​    使用Adam优化器，初始学习率为0.001，激活函数activate为sin，任务数num_tasks为5，剪枝参数alpha_fc为0.95，系统研究对象system为convection，内部区域中取样点的数量N_f为1000，xgrid网格的大小为256，迭代次数为num_epoch为20000。
+
+（2）场景二：交互和扩散过程中的单一和结合方程实验
+
+使用Adam优化器，初始学习率为0.001，激活函数activate为sin，任务数num_tasks为3，剪枝参数alpha_fc为0.95，系统研究对象system为rd，内部区域中取样点的数量N_f为1000，xgrid网格的大小为256，迭代次数num_epoch为20000，初始条件为gauss。
+
+ 
+
+5 实验结果
+
+​    iPINN模型在两个场景上以及每个场景有不同的任务数量上通过持续学习后进行测试的实验结果。结果的评价标准使用相对误差（Relative Error）和绝对误差（Absolute Error）的指标。场景一是一系列的一维传导微分方程持续学习求解，包含有5个任务数量；场景二是在交互-扩散过程中多微分方程的结合进行持续学习，包含的三个任务就是交互过程的微分方程、扩散过程的微分方程以及交互-扩散过程的结合微分方程这三个任务数量。
+
+5.1 在场景一的一系列一维传导方程上进行训练和推理测试的实验结果
+
+（1）相对误差Relative Error （%）
+
+|       |  任务1   |  任务2   |  任务3   |  任务4  |  任务5  |
+| :---: | :------: | :------: | :------: | :-----: | :-----: |
+| 任务1 | 0.026619 |          |          |         |         |
+| 任务2 | 0.035741 | 0.16902  |          |         |         |
+| 任务3 | 0.043504 | 0.060796 | 0.085816 |         |         |
+| 任务4 | 0.041315 | 0.083491 | 0.10675  | 0.28467 |         |
+| 任务5 | 0.13889  | 0.058765 | 0.14317  | 0.41056 | 0.88743 |
+
+（2）绝对误差Absolute Error（%）
+
+|       |  任务1   |  任务2   |  任务3   |  任务4  |  任务5  |
+| :---: | :------: | :------: | :------: | :-----: | :-----: |
+| 任务1 | 0.016071 |          |          |         |         |
+| 任务2 | 0.021386 | 0.099850 |          |         |         |
+| 任务3 | 0.025840 | 0.036322 | 0.050214 |         |         |
+| 任务4 | 0.024547 | 0.048516 | 0.062786 | 0.15901 |         |
+| 任务5 | 0.084837 | 0.033890 | 0.075650 | 0.22896 | 0.49428 |
+
+5.2 在场景二的交互和扩散过程上进行训练和推理测试的实验结果
+
+（1）相对误差Relative Error （%）
+
+|       |  任务1   |   任务2   |  任务3  |
+| :---: | :------: | :-------: | :-----: |
+| 任务1 | 0.017492 |           |         |
+| 任务2 | 0.021360 | 0.0063530 |         |
+| 任务3 | 0.013337 | 0.0045940 | 0.41642 |
+
+（2）绝对误差Absolute Error（%）
+
+|       |   任务1   |   任务2   |  任务3  |
+| :---: | :-------: | :-------: | :-----: |
+| 任务1 | 0.0071404 |           |         |
+| 任务2 | 0.0083910 | 0.0018583 |         |
+| 任务3 | 0.0054464 | 0.011944  | 0.48676 |
+
+ 
