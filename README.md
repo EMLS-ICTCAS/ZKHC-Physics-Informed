@@ -8,7 +8,7 @@
 
 > 文档组织结构如如下，整个物理场反演方法从3个任务（物理重建、物理场动态预测、复合物理场反演）来进行阐述，在每一个任务下列举对应的论文文章，其中有相关开源源代码和开源数据集的方法模型，该综述会进行复现和展示实验结果。除此之外，综述还会引入了Transformer相关方法进行实验验证。
 
-![结构图](./figures/结构图.png)
+![](./figures/结构图.png)
 
 
 
@@ -26,6 +26,7 @@
 | [物理场动态预测](#dynamics-physical-predict) | 2026-Kohl et al | [👉跳转↗](#benchmarking-diffusion-turbulent-flow) |
 | [复合物理场反演](#couple-pyhsical) | 2024-Li et al | [👉跳转↗](#learning-spatiotemporal-dynamics) |
 | [持续学习物理场反演](#contiune-learning-physics-informed) | 2023-Aleksandr et al | [👉跳转↗](#incremental-leanring-physics-informed) |
+| [物理场数据集生成](./Physical-Datasets/) | Physical-Datasets | [👉跳转↗](./Physical-Datasets/) |
 
 <a id="physical-reconstruct"></a>
 
