@@ -1,0 +1,13 @@
+Lx 8
+Ly 1
+nx 800
+ny 100
+dt 0.001
+Tfinal 30
+Re 500
+nu 1.506e-5
+vorticity 1
+obstacle 1
+object circle_fin
+plot_dt 0.1
+animation 1
