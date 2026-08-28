@@ -766,7 +766,7 @@ Nvidia GeForce RTX 3060、CUDA 12.4、Python 3.12、Intel(R) Xeon(R) CPU E5-2680
 
 <a id="RealPDEBench"></a>
 
-## 二 Hu P, Feng H, Liu H, et al. RealPDEBench: A benchmark for complex physical systems with real-world data[J]. arXiv preprint arXiv:2601.01829, 2026.
+## 二 RealPDEBench: A benchmark for complex physical systems with real-world data
 
 1 源码仓库
 
@@ -799,7 +799,7 @@ Nvidia GeForce RTX 3060、CUDA 12.4、Python 3.12、Intel(R) Xeon(R) CPU E5-2680
 | 模型       | RMSE        | MAE         | Rel L2      | R2          | FRMSE       | FE           |
 | ---------- | ----------- | ----------- | ----------- | ----------- | ----------- | ------------ |
 | CNO        | 0.01527     | 0.00829     | 0.10587     | 0.96032     | 0.00131     | 21.32656     |
-|            | **0.01060** | **0.00638** | **0.07505** | 0.98008     | **0.00097** | **13.12214** |
+|            | 0.01060     | 0.00638     | 0.07505     | 0.98008     | **0.00097** | **13.12214** |
 | Deeponet   | 0.03427     | 0.02122     | 0.24764     | 0.79477     | 0.00345     | 49.31825     |
 |            | 0.03512     | 0.02157     | 0.25140     | **0.79009** | 0.00403     | **25.79555** |
 | U-Net      | 0.01379     | 0.00685     | 0.09313     | 0.96760     | 0.00119     | 12.71709     |
