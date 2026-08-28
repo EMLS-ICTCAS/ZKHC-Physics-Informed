@@ -24,7 +24,7 @@
 | [物理场重建](#physical-reconstruct) | 2023-Chen et al | [👉跳转↗](#machine-learning) |
 | [物理场重建](#physical-reconstruct) | 2020-Thuerey et al | [👉跳转↗](#deep-learning-airfoil-flows) |
 | [物理场动态预测](#dynamics-physical-predict) | 2026-Kohl et al | [👉跳转↗](#benchmarking-diffusion-turbulent-flow) |
-| [物理场动态预测](#dynamics-physical-predict) | 2026-Hu P, et al | 👉跳转↗ |
+| [物理场动态预测](#dynamics-physical-predict) | 2026-Hu P, et al | [👉跳转↗](#RealPDEBench) |
 | [复合物理场反演](#couple-pyhsical) | 2024-Li et al | [👉跳转↗](#learning-spatiotemporal-dynamics) |
 | [持续学习物理场反演](#contiune-learning-physics-informed) | 2023-Aleksandr et al | [👉跳转↗](#incremental-leanring-physics-informed) |
 | [物理场数据集生成](./Physical-Datasets/) | Physical-Datasets | [👉跳转↗](./Physical-Datasets/) |
@@ -763,6 +763,8 @@ Nvidia GeForce RTX 3060、CUDA 12.4、Python 3.12、Intel(R) Xeon(R) CPU E5-2680
 | Method | Parameters |
 | :----: | :--------: |
 |  ACDM  |   6.99M    |
+
+<a id="RealPDEBench"></a>
 
 ## 二 Hu P, Feng H, Liu H, et al. RealPDEBench: A benchmark for complex physical systems with real-world data[J]. arXiv preprint arXiv:2601.01829, 2026.
 
